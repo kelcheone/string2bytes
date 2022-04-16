@@ -1,18 +1,11 @@
 #!/usr/bin/env node
 import ethers from "ethers";
 import chalk from "chalk";
-import chalkAnimation from "chalk-animation";
 import inquirer from "inquirer";
 
-const sleep = (ms = 200) => new Promise((r) => setTimeout(r, ms));
-
 async function parseBytes(args) {
-  const bytes = args[0];
-  const name = ethers.utils.parseBytes32String(bytes);
-  const rainbowTile = chalkAnimation.rainbow("All in bytes");
-
-  await sleep();
-  rainbowTile.stop();
+  //   const bytes = args[0];
+  const name = ethers.utils.parseBytes32String(args);
 
   console.log(chalk.bgGray("name: ", name));
 }
@@ -32,6 +25,6 @@ async function askBytes() {
   inBytes = answers.stringIn;
   parseBytes(inBytes);
 }
-// await askBytes();
+await askBytes();
 
 parseBytes(process.argv.slice(2));
