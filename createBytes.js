@@ -7,8 +7,7 @@ import inquirer from "inquirer";
 const sleep = (ms = 200) => new Promise((r) => setTimeout(r, ms));
 
 async function createBytes(args) {
-  const name = args[0];
-  const bytes = ethers.utils.formatBytes32String(name);
+  const bytes = ethers.utils.formatBytes32String(args);
   const rainbowTile = chalkAnimation.rainbow("All in bytes");
 
   await sleep();
