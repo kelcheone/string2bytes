@@ -9,15 +9,13 @@ const sleep = (ms = 200) => new Promise((r) => setTimeout(r, ms));
 async function createBytes(args) {
   const name = args[0];
   const bytes = ethers.utils.formatBytes32String(name);
-  const rainbowTile = chalkAnimation.rainbow("Hola wana do some changes");
+  const rainbowTile = chalkAnimation.rainbow("All in bytes");
 
   await sleep();
   rainbowTile.stop();
 
-  console.log(chalk.bgMagenta("Bytes ", bytes));
+  console.log(chalk.bgGray("Bytes ", bytes));
 }
-
-// createBytes(process.argv.splice(2));
 
 let inString;
 
