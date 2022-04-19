@@ -13,7 +13,7 @@ async function createBytes(string){
   await sleep();
   rainbowTile.stop();
 
-  console.log(chalk.magenta(bytes));
+  console.log(chalk.green(bytes));
 }
 
 async function askString(){

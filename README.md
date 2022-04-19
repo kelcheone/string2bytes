@@ -1,16 +1,23 @@
 ### String2Bytes
 
-It parses String to bytes32 
+A Command line tool to parse strings to bytes and vice versa.
 
 Initialize with:
 
 ```
-$ npx string2bytes32 --parseString
+$ npm i -g string2bytes
 ```
-# You can also parse bytes32 to string:
+```
+# You can  parse string to bytes32:
 
 ```
-npx string2bytes32 --parseBytes
+npx parseString 
+```
+
+# You can bytes32 to string:
+
+```
+$ npx parseBytes 
 ```
 
 You can use it in your code:

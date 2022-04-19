@@ -1,6 +1,6 @@
 {
   "name": "string2bytes",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Transform strings to bytes32",
   "main": "createBytes.js",
   "type": "module",
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node ."
   },
-  "keywords": [],
+  "keywords": ["cli", "ethereum", "solidity", "string", "bytes32"],
   "author": "",
   "license": "ISC",
   "bin":{
