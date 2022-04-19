@@ -1,12 +1,12 @@
 {
   "name": "string2bytes",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Transform strings to bytes32",
   "main": "createBytes.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/kelcheone/string2bytes"
   },
   "scripts": {
     "start": "node ."
@@ -14,7 +14,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bin": "./createBytes.js",
+  "bin":{
+    "parseString": "./createBytes.js",
+    "parseBytes": "./parseBytes.js"
+  },
   "dependencies": {
     "chalk": "^5.0.1",
     "chalk-animation": "^1.6.0",

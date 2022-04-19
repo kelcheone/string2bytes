@@ -3,28 +3,27 @@ import ethers from "ethers";
 import chalk from "chalk";
 import inquirer from "inquirer";
 
-async function parseBytes(args) {
-  //   const bytes = args[0];
-  const name = ethers.utils.parseBytes32String(args);
-
-  console.log(chalk.bgGray("name: ", name));
+async function parseBytes(bytes) {
+  const parsed = ethers.utils.parseBytes32String(bytes);
+  console.log(chalk.green(parsed));
 }
-
-let inBytes;
 
 async function askBytes() {
-  const answers = await inquirer.prompt({
-    name: "stringIn",
-    type: "input",
-    message: "what bytes would you like to transfrom?",
-    default() {
-      return "0x4b00000000000000000000000000000000000000000000000000000000000000";
+  const { bytes } = await inquirer.prompt([
+    {
+      type: "input",
+      name: "bytes",
+      message: "Enter bytes to parse",
+      validate: (bytes) => {
+        if (bytes.length !== 66) {
+          return "Please enter a valid bytes";
+        }
+        return true;
+      },
     },
-  });
-
-  inBytes = answers.stringIn;
-  parseBytes(inBytes);
+  ]);
+  await parseBytes(bytes);
 }
+
 await askBytes();
 
-parseBytes(process.argv.slice(2));

@@ -6,29 +6,30 @@ import inquirer from "inquirer";
 
 const sleep = (ms = 200) => new Promise((r) => setTimeout(r, ms));
 
-async function createBytes(args) {
-  const bytes = ethers.utils.formatBytes32String(args);
-  const rainbowTile = chalkAnimation.rainbow("All in bytes");
-
+async function createBytes(string){
+  const bytes = ethers.utils.formatBytes32String(string);
+  const rainbowTile = chalkAnimation.rainbow("All in Bytes!");
+  
   await sleep();
   rainbowTile.stop();
 
-  console.log(chalk.bgGray("Bytes ", bytes));
+  console.log(chalk.magenta(bytes));
 }
 
-let inString;
-
-async function askString() {
-  const answers = await inquirer.prompt({
-    name: "stringIn",
-    type: "input",
-    message: "what string would you like to transfrom?",
-    default() {
-      return "Kelche";
-    },
-  });
-
-  inString = answers.stringIn;
-  createBytes(inString);
-}
+async function askString(){
+  const {string } = await inquirer.prompt([
+    {
+      type: "input",
+      name: "string",
+      message: "Enter string to parse",
+      validate: (string) => {
+        if (string.length > 66) {
+          return "Please enter a valid string";
+        }
+        return true;
+      }
+    }
+  ]);
+  await createBytes(string);
+  }
 await askString();
