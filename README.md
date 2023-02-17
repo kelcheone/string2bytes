@@ -7,7 +7,7 @@ Initialize with:
 ```
 $ npm i -g string2bytes
 ```
-```
+
 # You can  parse string to bytes32:
 
 ```
